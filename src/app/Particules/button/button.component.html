@@ -1,0 +1,10 @@
+<div>
+<button 
+    [type]="ButtonArgs.type" 
+    [class]="ButtonArgs.class"
+    [style]="ButtonArgs.style"
+    (click)="this.$eventClick.emit()"
+    >
+    {{ButtonArgs.text}}
+</button>
+</div>

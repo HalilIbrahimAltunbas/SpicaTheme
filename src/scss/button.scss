@@ -1,0 +1,14 @@
+$multiple : 5;
+$anim_mult : 1.2;
+
+button{
+    min-width : 16px * $multiple;
+    min-height: 9px * $multiple;
+    margin: 0px 5px 0px 5px !important;
+    box-shadow: 1.5px 1.5px 4px 0px rgba(1,1,1,.1);
+    transition: transform .1s !important 
+}
+
+button:hover {
+    transform: scale(1.1);
+}

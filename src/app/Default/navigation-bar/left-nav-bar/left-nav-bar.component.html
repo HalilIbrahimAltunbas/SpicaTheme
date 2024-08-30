@@ -1,0 +1,12 @@
+@for (item of this.ElementList; track $index) {
+    <div>
+      @if(item.type == "DropDown"){
+
+      <app-drop-down [style]="'dropdown-open-right'" [Options]="p(item)" [Name]="item.Name"></app-drop-down> 
+
+      } @else {
+      {{ item.Name }}
+      }
+    </div>
+
+    }

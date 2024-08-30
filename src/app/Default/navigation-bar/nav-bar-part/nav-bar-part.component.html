@@ -1,0 +1,44 @@
+@for (item of this.ElementList; track $index) {
+  <div>
+    @switch (item.type) 
+    { 
+      @case ("DropDown") 
+      {
+      
+         <app-drop-down 
+            [Options]="p(item | as : DropDownNavBarElement)"  
+            [Name]="item.Name" 
+            [style]="'dropdown-open-left'"  
+            [ButtonStyle]="this.buttonstyle"></app-drop-down> 
+
+      
+      } 
+
+      @case ("Toggle")
+      {
+      
+        <app-toggle
+          
+          [href]="(item | as : ToggleNavBarElement).href"
+          [void]="(item | as : ToggleNavBarElement).Function()"
+          
+        ></app-toggle>
+      } 
+
+      @default 
+      {
+      
+        <a [href]="(item | as : LinkNavBarElement).link">{{ item.Name }}</a>
+      
+      } 
+    }
+  </div>
+<!-- @if(item.type == ){
+
+      <app-drop-down [style]="'dropdown-open-left'" [Options]="p(item)" [Name]="item.Name" [ButtonStyle]="buttonstyle"></app-drop-down>
+
+      } @else {
+      
+      } -->
+
+}

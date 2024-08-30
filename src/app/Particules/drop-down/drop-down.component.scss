@@ -1,0 +1,29 @@
+.dropdown-button{
+    //min-width: 170px; 
+    display: flex; 
+    justify-content: 
+    space-between;align-items: center;
+}
+.dropdown-toggle::after {
+    display:none;
+}
+
+.dropdown-img{
+    background-color: rgb(225, 225, 225);
+    border-radius: 30px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+}
+.dropdown-open-left{
+    margin-top: 20px;
+    left: auto;
+    right: 0%;
+}
+
+.dropdown-open-right{
+    margin-top: 20px;
+    left: 0%;
+    right: auto;
+}
