@@ -1,7 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
 @import 'bootstrap/scss/bootstrap';
 @import "scss/bootstrap.scss";
 @import "scss/button.scss";
 @import "scss/main.scss";
+@import "scss/spc-container.scss";
 /* Importing Bootstrap SCSS file. */
+@include mat.core();
 
+$theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: mat.$violet-palette,
+  ),
+  typography: (
+    brand-family: 'Comic Sans',
+    bold-weight: 900
+  ),
+  density: (
+    scale: -1
+  )
+));
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

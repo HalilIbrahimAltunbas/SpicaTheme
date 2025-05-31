@@ -3,18 +3,23 @@ export class ButtonModel{
     type : string | buttonStyles | undefined
     text : string
     style?: string
-
+    disabled:boolean =false
+    icon?:string 
     
     constructor(args: {
         class : string
         type : string
         text : string
         style?: string
+        disabled:boolean
+        icon?:string 
     }) {
         this.class =args.class
         this.text =args.text
         this.type =args.type
         this.style = args.style
+        this.disabled= args.disabled
+        this.icon =args.icon
     }
 }
 

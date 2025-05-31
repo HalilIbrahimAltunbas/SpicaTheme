@@ -13,6 +13,6 @@ import { LeftNavBarComponent } from './left-nav-bar/left-nav-bar.component';
 export class NavigationBarComponent {
 
   @Input() LeftElementList : NavBarElement[] = []
-   
+  @Input() RightElementList : NavBarElement[] = []
 }
 

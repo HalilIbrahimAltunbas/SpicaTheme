@@ -11,20 +11,11 @@ import { AsyncPipe } from '@angular/common';
   imports: [imageDisplayComponent, LinkBarElement, LinkBarGroupComponent,AsyncPipe],
   templateUrl: './side-bar.component.html',
   styleUrl: './side-bar.component.scss',
-  changeDetection:ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SideBarComponent {
-  @Input() open_close = new Observable<boolean>(x=> x.next(true));
+  @Input() open_close = new Observable<boolean>();
   
-   
-   
-
-  ff(){
-    this.open_close.subscribe(
-      x => console.log(x)
-    )
-    
-  }
 
   groups: {
     Header: string;
@@ -64,6 +55,22 @@ export class SideBarComponent {
         },
       ],
     },
+    {
+      Header:"Authentication",
+      Description:"description of Authentication",
+      elements:[
+        {
+          Text:"Sign-In",
+          ImagePath:"",
+          href:"SignIn",
+        },
+        {
+          Text:"Sign-Up",
+          ImagePath:"",
+          href:"SignUp",
+        }
+      ]
+    }
   ];
   
   

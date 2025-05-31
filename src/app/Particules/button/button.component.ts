@@ -10,8 +10,11 @@ import { ButtonModel ,buttonStyles} from '../../Models/Particules/Button/ButtonM
 })
 export class ButtonComponent {
   @Output() $eventClick: EventEmitter<void> = new EventEmitter();
+  @Input() disable= false
   @Input() ButtonArgs: ButtonModel = {
     class: buttonStyles.danger_outline,
     text:"testtesttesttesttest",
-    type:"button"};
+    type:"submit",
+    disabled:false
+  };
 }

@@ -1,1 +1,13 @@
-<p>form works!</p>
+<form class="form-horizontal" >
+<div style="display: flex;flex-direction: column;align-items: center; justify-content: center;">
+    @for (item of this.fields; track $index) {
+        <app-input [InputModel]="item" ></app-input>
+    }
+    <!-- <button [disabled]="!this.group.valid"  (click)="this.test()"></button> -->
+    <app-button ($eventClick)="this.test()" 
+    [disable]="!this.group.valid" 
+    [ButtonArgs]="buttonModel"></app-button> 
+</div>
+</form>
+
+<!-- <app-input [InputModel]="this.PasswordInputModel"></app-input> -->

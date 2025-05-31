@@ -1,5 +1,25 @@
-<input 
-    [type]="InputModel.type" 
+
+
+<div class="mb-3 container">
     
-    [class]="InputModel.class" 
->
+    <mat-form-field appearance="outline">
+        <mat-label>{{InputModel.Name}}</mat-label>
+        <input 
+        [type]="InputModel.type" 
+        [formControl]="InputModel.Control" 
+        matInput 
+        [errorStateMatcher]="this.matcher"
+        [placeholder]="this.InputModel.placeholder">
+        <!--<mat-hint>Errors appear instantly!</mat-hint> -->
+        @if (InputModel.Control.hasError(InputModel.Name) && !InputModel.Control.hasError('required')) {
+          <mat-error>Please enter a valid {{InputModel.Name}}</mat-error>
+        }
+        @if (InputModel.Control.hasError('required')) {
+          <mat-error>{{InputModel.Name}} is <strong>required</strong></mat-error>
+        }
+      </mat-form-field>
+   
+
+
+</div>
+

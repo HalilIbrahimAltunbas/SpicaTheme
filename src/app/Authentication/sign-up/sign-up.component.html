@@ -1,0 +1,34 @@
+<div
+  class="center-block"
+  style="
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  "
+>
+  <div class="spc-container col-md-5">
+    <div>
+      <h2 style="margin-bottom: 25px; color: rgba(1 1 30 / 0.8)">
+        <b>Sign Up</b>
+      </h2>
+      
+      <app-form [fields]="this.InputFields"></app-form>
+    </div>
+
+    <hr />
+
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-around;
+      "
+    >
+      @for (item of this.buttons; track $index) {
+      <app-button [ButtonArgs]="item"></app-button>}
+    </div>
+  </div>
+</div>
+

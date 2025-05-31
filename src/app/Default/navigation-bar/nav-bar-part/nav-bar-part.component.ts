@@ -8,11 +8,13 @@ import { ToggleNavBarElement} from '../../../Models/Default/NavModel/ToggleNavEl
 import { AsPipe } from '../../../Pipes/asPipe';
 import { DropDownComponent } from '../../../Particules/drop-down/drop-down.component';
 import { ToggleComponent } from '../../../Particules/Toggle/Toggle';
+import { ComponentToggleComponent } from "../../../Particules/component-toggle/component-toggle.component";
+import { ComponentToggleNavBarElement } from '../../../Models/Default/NavModel/ComponentToggleNavElement';
 
 @Component({
   selector: 'app-nav-bar-part',
   standalone: true,
-  imports: [DropDownComponent,AsPipe,ToggleComponent],
+  imports: [DropDownComponent, AsPipe, ToggleComponent, ComponentToggleComponent],
   templateUrl: './nav-bar-part.component.html',
   styleUrl: './nav-bar-part.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -22,15 +24,9 @@ export class NavBarPartComponent {
   DropDownNavBarElement!: DropDownNavBarElement;
   LinkNavBarElement!: LinkNavBarElement ;
   ToggleNavBarElement!: ToggleNavBarElement ;
+  ComponentToggleNavBarElement!: ComponentToggleNavBarElement ;
   
   p(element : DropDownNavBarElement): string[]{
     return element.options.map((a:LinkNavBarElement) => {return a.Name})
-  }
-  buttonstyle = buttonStyles.dark
-
-  //test: EventEmitter<void> = new EventEmitter<void>();
-  test1(){
-    console.log("olmuştur")
-    this.ToggleNavBarElement.Function
   }
 }

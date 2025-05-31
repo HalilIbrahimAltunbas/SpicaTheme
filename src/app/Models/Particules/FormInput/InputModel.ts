@@ -1,0 +1,48 @@
+import { FormControl } from "@angular/forms"
+
+export class FormInputModel{
+    class:string
+    type:string | FormInputTypes
+    Name:string
+    placeholder:string
+    Control : FormControl
+    constructor(args:{
+        class:string
+        type:string
+        Name:string
+        placeholder:string
+        Control : FormControl
+    }) {
+       this.class = args.class
+       this.type = args.type
+       this.Name = args.Name
+       this.placeholder = args.placeholder
+       this.Control = args.Control
+    }
+}
+
+export enum FormInputTypes{
+"button"="button",
+"checkbox"="checkbox",
+"color"="color",
+"date"="date",
+"datetime-local"="datetime-local",
+"email"="email",
+"file"="file",
+"hidden"="hidden",
+"image"="image",
+"month"="month",
+"number"="number",
+"password"="password",
+"radio"="radio",
+"range"="range",
+"reset"="reset",
+"search"="search",
+"submit"="submit",
+"tel"="tel",
+"text"="text",
+"time"="time",
+"url"="url",
+"week"="week",
+
+}

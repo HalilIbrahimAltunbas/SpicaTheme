@@ -4,7 +4,12 @@
     [class]="ButtonArgs.class"
     [style]="ButtonArgs.style"
     (click)="this.$eventClick.emit()"
+    [disabled]="disable"
+    
     >
+    @if (ButtonArgs.icon) {
+        <img [src]="ButtonArgs.icon" alt="">
+    }
     {{ButtonArgs.text}}
 </button>
 </div>
