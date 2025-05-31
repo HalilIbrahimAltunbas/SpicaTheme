@@ -1,6 +1,41 @@
 .side-bar{
     box-shadow: 4px 0px 4px 0px rgba(0,0,0,0.1);
+    margin: 15px;
+    border-radius: 30px;
+    width: calc(280px - 30px);
+    height: calc(100% - 30px);
 }
 .side-bar-close{
-  display: none !important;
+    transform: translateX(-280px);
+    
+    transition: ease-in-out 600ms transform;
+    display: none !important;
+    
 }
+
+@keyframes changecolor {
+    0%{background-position:100% 0%}
+    50%{background-position:0% 100%}
+    100%{background-position:100% 0%}
+    // from {
+    
+    //  background:  linear-gradient(to bottom left, rgba(1 1 30 / 0.8) 0%, rgba(1 38 100 / 0.8) 100%)
+    // }
+  
+    // to {
+        
+    //   background :  
+    //     linear-gradient(to bottom right, rgba(1 38 100 / 0.8) 0%, rgba(1 1 30 / 0.8) 100%)
+    // }
+  }
+//
+  .spc-clr{
+    background:  linear-gradient(to bottom left,rgba(1 1 30 / 0.8) 0%,rgba(1 38 100 / 0.8) 50%, rgba(1 1 30 / 0.8) 100% );
+    background-size: 400% 400%;
+    
+    animation-duration: 10s;
+    animation-name: changecolor;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    
+  }

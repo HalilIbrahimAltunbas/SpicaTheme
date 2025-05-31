@@ -1,63 +1,20 @@
-<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark side-bar" [class.side-bar-close]="this.open_close | async" style="width: 280px;height: 100%;">
+<div class="d-flex flex-column flex-shrink-0 p-3 text-white side-bar spc-clr" [class.side-bar-close]="this.open_close | async">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
       <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
       <span class="fs-4">Sidebar</span>
     </a>
-    <button (click)="ff()"></button>
-    {{this.open_close | async}}
+    
     <ul class="nav nav-pills flex-column mb-auto">
 
       @for (group of groups; track $index) {
       <app-link-bar-group [group]="group">
 
       </app-link-bar-group>}
-      <!--<div style="margin: 30px 0px 30px 0px;"> 
-        <h6>Group Name</h6>
-        <label style="margin-bottom: 15px; color: rgba(200, 200, 226, 0.75);"
-        > group1</label>
-        <li class="nav-item">
-          <app-link-bar [href]="'#'" [Text]="'Home'" [ImagePath]="'../../../assets/house.svg'"></app-link-bar>
-        </li>
-      <li class="nav-item">
-        <a href="#" style="display: flex;" class="nav-link active" aria-current="page">
-           <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg> -->
-          <!-- <img src="../../../assets/house.svg" alt=""> 
-          <app-img href=""></app-img>
-          <label style="margin-left:5px ; display: flex;align-items: center;"> Home</label>
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link text-white">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
-          Dashboard
-        </a>
-      </li>
-      </div>
-       
-      
-      <li>
-        <a href="#" class="nav-link text-white">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
-          Orders
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link text-white">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
-          Products
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link text-white">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
-          Customers
-        </a>
-      </li>-->
     </ul>
-    <hr>
+   <!-- <hr>
     <div class="dropdown">
       <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+         <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2"> 
         <strong>mdo</strong>
       </a>
       <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
@@ -67,5 +24,5 @@
         <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="#">Sign out</a></li>
       </ul>
-    </div>
+    </div>-->
   </div>

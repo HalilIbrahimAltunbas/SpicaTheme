@@ -9,7 +9,7 @@
             [Options]="p(item | as : DropDownNavBarElement)"  
             [Name]="item.Name" 
             [style]="'dropdown-open-left'"  
-            [ButtonStyle]="this.buttonstyle"></app-drop-down> 
+            ></app-drop-down> 
 
       
       } 
@@ -20,9 +20,20 @@
         <app-toggle
           
           [href]="(item | as : ToggleNavBarElement).href"
-          [void]="(item | as : ToggleNavBarElement).Function()"
+          [void]="(item | as : ToggleNavBarElement).Function"
           
         ></app-toggle>
+      } 
+
+      @case ("ComponentToggle")
+      {
+      
+        <app-component-toggle
+          
+          [href]="(item | as : ComponentToggleNavBarElement).href"
+          [component]="(item | as : ComponentToggleNavBarElement).componentType"
+          
+        ></app-component-toggle>
       } 
 
       @default 
@@ -32,6 +43,7 @@
       
       } 
     }
+    
   </div>
 <!-- @if(item.type == ){
 

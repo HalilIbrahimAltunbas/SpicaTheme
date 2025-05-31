@@ -1,14 +1,17 @@
-<div style="display: flex; height: 100%;" >
-<app-side-bar [open_close]="this.$sidebarCallopse "  id="side-bar" style="width: fit-content; height: 100%;"></app-side-bar>
-<div style="width: 100%;">
-    <app-navigation-bar  style="width: 100%;" [LeftElementList]="list"></app-navigation-bar>
+<div style="display: flex; height: 100%">
+  <app-side-bar
+    [class.side-bar-close]="this._subject.asObservable() | async"
+    [class.side-bar-open]="!(this._subject.asObservable() | async)"
+    id="side-bar"
+    style="width: 280px; height: 100%"
+  ></app-side-bar>
+  <div style="width: 100%">
+    <app-navigation-bar
+      style="width: 100%"
+      [LeftElementList]="leftlist"
+      [RightElementList]="rightlist"
+    ></app-navigation-bar>
 
-
-    <app-input [InputModel]="InputModel"></app-input>
-    <app-button></app-button></div>
+    <app-content class="scroller"></app-content>
+  </div>
 </div>
-<div class="head-nav-bar">
-    
-</div>
-
-

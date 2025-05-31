@@ -3,3 +3,49 @@
        display: none;
     }
 }
+.side-bar-close{
+    transform: translateX(-280px);
+    width: 0px !important;
+    transition: ease-in-out transform 600ms ,ease-in-out width 600ms;
+}
+
+.side-bar-open{
+  transform: translateX(0);
+  width: 280px !important;
+  transition: ease-in-out transform 600ms ,ease-in-out width 600ms;
+}
+app-content{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 90.8%;
+}
+
+.scroller {
+    overflow-y: scroll;
+  }
+  
+  /* width */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar:hover {
+    transform: scaleX(2);
+    transition: ease-in-out 600ms transform;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #eee;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #9370d877;
+    border-radius: 25px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #9370d8;
+  }

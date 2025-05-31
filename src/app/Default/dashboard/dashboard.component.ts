@@ -2,27 +2,38 @@ import { ChangeDetectionStrategy, Component, EventEmitter } from '@angular/core'
 import { NavigationBarComponent } from "../navigation-bar/navigation-bar.component";
 import { DropDownNavBarElement } from '../../Models/Default/NavModel/DropDownNavBarElement';
 import { LinkNavBarElement } from '../../Models/Default/NavModel/LinkNavBarElement';
-import { ParticulesModule } from '../../Particules/particules.module';
-import { InputModel, InputTypes } from '../../Models/Particules/Input/InputModel';
 import { ToggleNavBarElement } from '../../Models/Default/NavModel/ToggleNavElement';
 import { NavBarElement } from '../../Models/Default/NavModel/NavBarElement';
 import { SideBarComponent } from "../../Molecules/side-bar/side-bar.component";
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
-const subject = new Subject<boolean>()
+import { ContentComponent } from '../content/content.component';
+import { ComponentToggleNavBarElement } from '../../Models/Default/NavModel/ComponentToggleNavElement';
+import { ProfileComponent } from '../../Molecules/Collapse/profile/profile.component';
+let subject = new BehaviorSubject<boolean>(false)
+// to do : buraya servis yapısı inşa edilecek servis içinden bu
+// işlem yapılacak
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [NavigationBarComponent, ParticulesModule, SideBarComponent],
+  imports: [NavigationBarComponent, ContentComponent, SideBarComponent,AsyncPipe],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class DashboardComponent {
-  $sidebarCallopse = new Observable<boolean>(x=> x.next(this._sidebarCallopse));
+  _subject;
+  $sidebarCallopse = subject.asObservable();
   
+  /**
+   *
+   */
+  constructor() {
+    this._subject = subject
+    
+  }
 
-  list: NavBarElement[] =[
+  leftlist: NavBarElement[] =[
     // new LinkNavBarElement({
       // link:"a",
       // Name:"a",
@@ -34,12 +45,16 @@ export class DashboardComponent {
     // }),
 
 
-     new ToggleNavBarElement({
-      href:"../../../assets/bell-regular.svg",
+    new ToggleNavBarElement({
+      href: "../../../assets/hamburger-sidebar-open.svg",
       Function: this.sidebarCallopse,
       FunctionName:"test"
     }),
-
+    // new ToggleNavBarElement({
+    //   href:"../../../assets/hamburger-sidebar-close.svg",
+    //   Function: this.sidebarCallopse,
+    //   FunctionName:"test"
+    // }),
     new DropDownNavBarElement({
      
       Name:"ctestestsest",
@@ -71,24 +86,35 @@ export class DashboardComponent {
           }),
       ]
     }),
+
+    new ComponentToggleNavBarElement({
+      href:"../../../assets/wallet-solid.svg",
+      componentType: ProfileComponent
+    })
    
   ]
-  InputModel: InputModel ={
-    type:InputTypes.button,
-    class :"form-control"
 
-  }
+  rightlist: NavBarElement[] =[
+   
+    new ToggleNavBarElement({
+      href:"../../../assets/hamburger-sidebar-close.svg",
+      Function: this.sidebarCallopse,
+      FunctionName:"test"
+    }),
+    new ComponentToggleNavBarElement({
+      href:"../../../assets/wallet-solid.svg",
+      componentType: ProfileComponent
+    })
+    
+  ]
+  
  
   
   _sidebarCallopse:boolean = false;
   sidebarCallopse(){
-    //this._sidebarCallopse = !this._sidebarCallopse
-    //subject.next(this._sidebarCallopse).
-    ////this.$sidebarCallopse = subject
-    //
-    //
-    //console.log( this._sidebarCallopse)
-    
+    this._sidebarCallopse = !this._sidebarCallopse
+    subject.next(this._sidebarCallopse)
+    subject.subscribe(s=> console.log(s))
     
   }
   
